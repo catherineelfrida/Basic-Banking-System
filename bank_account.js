@@ -1,19 +1,35 @@
-let saldo = 5000
+class BankAccount {
+  constructor(saldoAwal = 5000) {
+    this.saldo = saldoAwal;
+  }
 
-function tambahSaldo() {
-  let input = prompt("Masukkan jumlah saldo yang ingin ditambahkan", 0);
-  saldo = +saldo + +input
-  // document.getElementById("demo").innerHTML +=
-  // "<br>" + "Saldo pada saat ini: " + saldo ;
-  document.getElementById("demo").innerHTML =
-  "Saldo pada saat ini: " + saldo ;
+  deposit(amount) {    
+    if (!isNaN(amount) && amount > 0) {
+      this.saldo += amount;
+      this.tampilkanSaldo();
+    } else {
+      alert("Jumlah yang dimasukkan tidak valid.");
+    }
+  }
+
+  withdraw(amount) {
+    if (!isNaN(amount) && amount > 0) {
+      if (amount <= this.saldo) {
+        this.saldo -= amount;
+        this.tampilkanSaldo();
+      } else {
+        alert("Saldo tidak mencukupi.");
+      }
+    } else {
+      alert("Jumlah yang dimasukkan tidak valid.");
+    }
+  }
+
+  tampilkanSaldo() {
+    document.getElementById("demo").innerHTML = "Saldo pada saat ini: " + this.saldo;
+  }
 }
 
-function kurangiSaldo() {
-  let input = prompt("Masukkan jumlah saldo yang ingin dikurangi", 0);
-  saldo = +saldo + +input
-  // document.getElementById("demo").innerHTML +=
-  // "<br>" + "Saldo pada saat ini: " + saldo ;
-  document.getElementById("demo").innerHTML =
-  "Saldo pada saat ini: " + saldo ;
-}
+const bankAccount = new BankAccount();
+
+module.exports = bankAccount;
