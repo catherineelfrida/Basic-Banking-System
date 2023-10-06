@@ -8,7 +8,7 @@ class BankAccount {
       this.saldo += amount;
       this.tampilkanSaldo();
     } else {
-      alert("Jumlah yang dimasukkan tidak valid.");
+      alert("Input tidak valid.");
     }
   }
 
@@ -21,7 +21,7 @@ class BankAccount {
         alert("Saldo tidak mencukupi.");
       }
     } else {
-      alert("Jumlah yang dimasukkan tidak valid.");
+      alert("Input tidak valid.");
     }
   }
 
@@ -32,4 +32,4 @@ class BankAccount {
 
 const bankAccount = new BankAccount();
 
-module.exports = bankAccount;
+export { bankAccount };

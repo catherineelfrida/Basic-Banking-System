@@ -1,12 +1,13 @@
-const bankAccount = require("./bank_account.js");
+import { bankAccount } from "./bank_account";
 
 function tambahSaldo() {
-  const  amount = parseInt(prompt("Masukkan jumlah saldo yang ingin ditambahkan", 0));
+  const  amount = parseInt(prompt("Masukkan jumlah saldo yang ingin ditambahkan", 0), 10);
   bankAccount.deposit(amount);
 }
 
 function kurangiSaldo() {
-  const amount = parseInt(prompt("Masukkan jumlah saldo yang ingin dikurangi", 0));
+  const amount = prompt("Masukkan jumlah saldo yang ingin dikurangi", 0);
   bankAccount.withdraw(amount);
 }
 
+bankAccount.tampilkanSaldo();
