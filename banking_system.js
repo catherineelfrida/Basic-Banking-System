@@ -1,5 +1,3 @@
-import { bankAccount } from "./bank_account";
-
 function tambahSaldo() {
   const  amount = parseInt(prompt("Masukkan jumlah saldo yang ingin ditambahkan", 0), 10);
   bankAccount.deposit(amount);

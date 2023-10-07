@@ -31,5 +31,3 @@ class BankAccount {
 }
 
 const bankAccount = new BankAccount();
-
-export { bankAccount };
