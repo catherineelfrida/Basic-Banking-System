@@ -3,27 +3,33 @@ class BankAccount {
     this.saldo = saldoAwal;
   }
 
-  deposit(amount) {    
+  async deposit(amount) {    
     if (!isNaN(amount) && amount > 0) {
-      setTimeout(() => {
-        this.saldo += amount;
-        this.tampilkanSaldo();
-      }, 3000);
+      await new Promise(resolve => {
+        setTimeout(() => {
+          this.saldo += amount;
+          this.tampilkanSaldo();
+          resolve();
+        }, 3000);
+      })
     } else {
-      alert("Jumlah yang dimasukkan tidak valid.");
+    alert("Jumlah yang dimasukkan tidak valid.");
     }
   }
 
-  withdraw(amount) {
+  async withdraw(amount) {
     if (!isNaN(amount) && amount > 0) {
-      if (amount <= this.saldo) {
+      await new Promise((resolve) => {
         setTimeout(() => {
-          this.saldo -= amount;
-          this.tampilkanSaldo();
+          if (amount <= this.saldo) {
+            this.saldo -= amount;
+            this.tampilkanSaldo();
+          } else {
+            alert("Saldo tidak mencukupi.");
+          }
+          resolve()
         }, 3000);
-      } else {
-        alert("Saldo tidak mencukupi.");
-      }
+      })
     } else {
       alert("Jumlah yang dimasukkan tidak valid.");
     }
