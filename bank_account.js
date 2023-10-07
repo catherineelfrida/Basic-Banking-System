@@ -5,8 +5,10 @@ class BankAccount {
 
   deposit(amount) {    
     if (!isNaN(amount) && amount > 0) {
-      this.saldo += amount;
-      this.tampilkanSaldo();
+      setTimeout(() => {
+        this.saldo += amount;
+        this.tampilkanSaldo();
+      }, 3000);
     } else {
       alert("Jumlah yang dimasukkan tidak valid.");
     }
@@ -15,8 +17,10 @@ class BankAccount {
   withdraw(amount) {
     if (!isNaN(amount) && amount > 0) {
       if (amount <= this.saldo) {
-        this.saldo -= amount;
-        this.tampilkanSaldo();
+        setTimeout(() => {
+          this.saldo -= amount;
+          this.tampilkanSaldo();
+        }, 3000);
       } else {
         alert("Saldo tidak mencukupi.");
       }
